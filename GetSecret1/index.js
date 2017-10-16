@@ -26,7 +26,8 @@ const getSecretFromVaultAsync = (token, secretUrl) => {
         url: secretUrl,
         headers : {
             'Authorization' : `Bearer ${token}`
-        }
+        },
+        json: true
     };
 
     return rp(options);
@@ -45,6 +46,11 @@ const logToken = (context, token) => {
     context.log(`token["resource"]: ${token["resource"]}`);
 }
 
+const logSecret = (context, secret) => {
+    context.log(`secret["value"]: ${secret["value"]}`);
+    context.log(`secret["attributes"]: ${secret["attributes"]}`);
+}
+
 module.exports = function (context, req) {
     
     logDiagnostics(context);
@@ -58,12 +64,10 @@ module.exports = function (context, req) {
             logToken(context, token_response);
             token = token_response["access_token"];
 
-            context.log(`token: ${token}`);
-
             getSecretFromVaultAsync(token, secretUrl)
             .then( resp => {
-                context.log(resp)
-                context.res = resp
+                logSecret(context, resp)
+                context.res = resp["value"]
                 context.done()
             })
             .catch( err => {
