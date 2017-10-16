@@ -33,6 +33,7 @@ const getSecretFromVaultAsync = (token, secretUrl) => {
     return rp(options);
 }
 
+// logs some information from the context
 const logDiagnostics = (context) => {
     context.log(`MSI_ENDPOINT: ${process.env.MSI_ENDPOINT}`);
     context.log(`MSI_SECRET: ${process.env.MSI_SECRET}`);
