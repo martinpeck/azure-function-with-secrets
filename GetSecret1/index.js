@@ -62,8 +62,8 @@ module.exports = function (context, req) {
 
             getSecretFromVaultAsync(token, secretUrl)
             .then( resp => {
-                context.log(response)
-                context.res = response
+                context.log(resp)
+                context.res = resp
                 context.done()
             })
             .catch( err => {
