@@ -12,7 +12,8 @@ const getADTokenForVaultAsync = () => {
         uri: `${process.env["MSI_ENDPOINT"]}/?resource=${vaultResourceUrl}&api-version=${apiVersion}`,
         headers: {
             'Secret': process.env["MSI_SECRET"]
-        }
+        },
+        json: true
     };
 
     return rp(options);
