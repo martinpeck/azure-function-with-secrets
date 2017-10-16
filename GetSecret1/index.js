@@ -5,7 +5,7 @@ const rp = require('request-promise');
 // the Azure Vault resource, and returns a promise
 const getADTokenForVaultAsync = () => {
     
-    const vaultResourceUrl = 'https://vault.azure.net/';
+    const vaultResourceUrl = 'https://vault.azure.net';
     const apiVersion = '2017-09-01';
 
     var options = {
