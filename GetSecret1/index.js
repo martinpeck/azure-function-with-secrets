@@ -39,10 +39,10 @@ const logDiagnostics = (context) => {
 }
 
 const logToken = (context, token) => {
-    context.log(`token.access_token: ${token.access_token}`);
-    context.log(`token.token_type: ${token.token_type}`);
-    context.log(`token.expires_on: ${token.expires_on}`);
-    context.log(`token.resource: ${token.resource}`);
+    context.log(`token["access_token"]: ${token["access_token"]}`);
+    context.log(`token["token_type"]: ${token["token_type"]}`);
+    context.log(`token["expires_on"]: ${token["expires_on"]}`);
+    context.log(`token["resource"]: ${token["resource"]}`);
 }
 
 module.exports = function (context, req) {
@@ -58,7 +58,7 @@ module.exports = function (context, req) {
             token = token_response["access_token"];
 
             logToken(context, token);
-            
+
             context.log(`token: ${token}`);
 
             getSecretFromVaultAsync(token, secretUrl)
