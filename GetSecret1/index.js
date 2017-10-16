@@ -45,8 +45,10 @@ module.exports = function (context, req) {
     context.log(`Accessing secretUrl:${secretUrl}`);
 
     getADTokenForVaultAsync()
-        .then( token => {
-            context.log(token);
+        .then( token_response => {
+            context.log(`token_response: ${token_response}`);
+            token = token_response.access_token;
+            context.log(`token: ${token}`);
 
             getSecretFromVaultAsync(token, secretUrl)
             .then( resp => {
