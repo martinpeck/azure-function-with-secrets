@@ -55,9 +55,8 @@ module.exports = function (context, req) {
     getADTokenForVaultAsync()
         .then( token_response => {
 
+            logToken(context, token_response);
             token = token_response["access_token"];
-
-            logToken(context, token);
 
             context.log(`token: ${token}`);
 
