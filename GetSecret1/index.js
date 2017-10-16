@@ -48,6 +48,7 @@ const logToken = (context, token) => {
 
 const logSecret = (context, secret) => {
     context.log(`secret["value"]: ${secret["value"]}`);
+    context.log(`secret["id"]: ${secret["id"]}`);
     context.log(`secret["attributes"]: ${secret["attributes"]}`);
 }
 
