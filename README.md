@@ -139,6 +139,12 @@ What you should see, if you look at the log stream for your function, is that th
 
 You could also try changing the access policy for your original Function App. For example, remove `get` access. Again, your Function App should be prevented from accessing the secrets.
 
+# How Does the Code Work?
+
+You will find a README.md in the folder for each function:
+
+GetSecret1: [README.md](./GetSecret1/README.md)
+
 # Things to Consider
 
 - The Azure Managed Service Identity feature is in public preview.
