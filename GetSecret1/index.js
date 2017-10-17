@@ -22,8 +22,10 @@ const getADTokenForVaultAsync = () => {
 // given an access token and a secretUrl, this function returns the value of the secret
 const getSecretFromVaultAsync = (token, secretUrl) => {
 
+    const secretUrlWithVersion = secretUrl + "?api-version=2016-10-01"
+    
     var options = {
-        url: secretUrl,
+        url: secretUrlWithVersion,
         headers : {
             'Authorization' : `Bearer ${token}`
         },
